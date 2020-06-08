@@ -1,18 +1,3 @@
-# all imports below
+def findDistance(vrec): return float(vrec/71)*(3261563.78)
 
-"""
-Any extra lines of code (if required)
-as helper for this function.
-"""
-
-def findDistance(vrec):
-	'''
-	Parameters
-	----------
-	vrec : a `float`
-	
-	Returns
-	-------
-	a `float`
-	'''
-	return NotImplementedError
+print(findDistance(float(input())))
