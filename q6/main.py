@@ -21,8 +21,8 @@ def findstrike(velocity: float, alt: float, az: float):
 	r = r1+r2 	# arc distance
 	b = float(r/re) 	# radial arc distance
 
-	a = math.acos(	math.cos(b)*math.cos(pi2-lat1) + (math.sin(pi2-lat1)*math.sin(b)*math.cos(az))	)
-	B = math.asin(	(math.sin(b)*math.sin(az))/math.sin(a)	)
+	a = math.acos(	math.cos(b)*math.cos(pi2-lat1) + (math.sin(pi2-lat1)*math.sin(b)*math.cos(alt))	)
+	B = math.asin(	(math.sin(b)*math.sin(alt))/math.sin(a)	)
 	lat2 = math.degrees(pi2-a)
 	lon2 = math.degrees(lon1+B)
 
