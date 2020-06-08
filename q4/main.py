@@ -1,16 +1,17 @@
-# all imports below
-from datetime import datetime
+import ephem
+from datetime import datetime, timedelta
 
 """
 Any extra lines of code (if required)
 as helper for this function.
 """
 
-startobs = datetime(2000, 1, 1, 0, 0, 0) #replace it by the time when Saturn will be just visible
-endobs = datetime(2020, 1, 1) #replace it by the time when Saturn is no longer visible from SAC terrace
+startobs = datetime(2020, 6, 9, 0, 9, 6)
+endobs = datetime(2020, 6, 9, 6, 41, 41)
+
 
 def findSaturn(obstime):
-	'''
+    """
 	Parameters
 	----------
 	obstime : A `~datetime.datetime` instance.
@@ -18,5 +19,12 @@ def findSaturn(obstime):
 	Returns
 	-------
 	A `tuple` of two floats.
-	'''
-	return NotImplementedError
+	"""
+    obstime = obstime - timedelta(0, 0, 0, 0, 30, 5)
+    obs = ephem.Observer()
+    obs.lon, obs.lat = "76.993694", "31.781476"
+    obs.elevation = 1000
+    obs.date = f"{obstime.year}/{obstime.month}/{obstime.day} {obstime.hour}:{obstime.minute}:{obstime.second}"
+    sat = ephem.Saturn()
+    sat.compute(obs)
+    return sat.alt, sat.az
