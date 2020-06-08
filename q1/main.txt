@@ -2,9 +2,8 @@
 
 i) "Polaris"
 ii) "Regulus"
-iii) "Messier 29"
-iv) "Messier 92"
-v) ""
-vi) ""
-vii) "" & ""
-
+iii) "M 29"
+iv) "M 92"
+v) "Gamma Lyrae"
+vi) "Saturn"
+vii) "Jupiter"
