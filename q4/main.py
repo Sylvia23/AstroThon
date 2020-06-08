@@ -28,7 +28,7 @@ def findSaturn(obstime):
     obs.date = f"{obstime.year}/{obstime.month}/{obstime.day} {obstime.hour}:{obstime.minute}:{obstime.second}"
     sat = ephem.Saturn()
     sat.compute(obs)
-    alt = degrees(repr(sat.alt))
-    az = degrees(repr(sat.az))
+    alt = degrees(float(repr(sat.alt)))
+    az = degrees(float(repr(sat.az)))
     return alt, az
 
