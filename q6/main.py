@@ -6,6 +6,8 @@ h = 8848
 re = 6371000
 lat1 = 27.9881
 lon1 = 86.9250
+pi = 3.1415926
+pi2 = pi/2
 
 def findstrike(velocity: float, alt: float, az: float):
    	
@@ -16,13 +18,13 @@ def findstrike(velocity: float, alt: float, az: float):
 	r2 = ((u*math.cos(az))/g)
 	r2_= math.sqrt(((u*math.sin(az))**2) + (2*g*h)) - (u*math.sin(az))
 	r2 = r2*r2_
-	r = r1+r2
-	b = r/re
+	r = r1+r2 	# arc distance
+	b = r/re 	# radial arc distance
 
-	a = math.acos(	math.cos(b)*math.cos(90-lat1) + (math.sin(90-lat1)*math.sin(b)*math.cos(az))	)
+	a = math.acos(	math.cos(b)*math.cos(pi2-lat1) + (math.sin(pi2-lat1)*math.sin(b)*math.cos(az))	)
 	B = math.asin(	(math.sin(b)*math.sin(az))/math.sin(a)	)
-	lat2 = round(90-a,5)
-	lon2 = round(lon1+B,5)
+	lat2 = math.degrees(pi2-a)
+	lon2 = math.degrees(lon1+B)
 
 	return tuple([lat2,lon2])
 
