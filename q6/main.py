@@ -2,7 +2,7 @@
 import math
 
 g = 9.81
-h =  8848
+h = 8848
 re = 6371000
 lat1 = 27.9881
 lon1 = 86.9250
@@ -17,7 +17,6 @@ def findstrike(velocity: float, alt: float, az: float):
 	r2_= math.sqrt(((u*math.sin(az))**2) + (2*g*h)) - (u*math.sin(az))
 	r2 = r2*r2_
 	r = r1+r2
-	print(r)
 	b = r/re
 
 	a = math.acos(	math.cos(b)*math.cos(90-lat1) + (math.sin(90-lat1)*math.sin(b)*math.cos(az))	)
@@ -28,5 +27,3 @@ def findstrike(velocity: float, alt: float, az: float):
 	return tuple([lat2,lon2])
 
 print(findstrike(float(input()), float(input()), float(input())))
-
-# print(findstrike(10,40,0))
