@@ -22,8 +22,8 @@ def findstrike(velocity: float, alt: float, az: float):
 
 	a = math.acos(	math.cos(b)*math.cos(90-lat1) + (math.sin(90-lat1)*math.sin(b)*math.cos(az))	)
 	B = math.asin(	(math.sin(b)*math.sin(az))/math.sin(a)	)
-	lat2 = 90-a
-	lon2 = lon1+B
+	lat2 = round(90-a,5)
+	lon2 = round(lon1+B,5)
 
 	return tuple([lat2,lon2])
 
