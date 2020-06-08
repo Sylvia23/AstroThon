@@ -1,5 +1,6 @@
 import ephem
 from datetime import datetime, timedelta
+from math import degrees
 
 """
 Any extra lines of code (if required)
@@ -27,4 +28,7 @@ def findSaturn(obstime):
     obs.date = f"{obstime.year}/{obstime.month}/{obstime.day} {obstime.hour}:{obstime.minute}:{obstime.second}"
     sat = ephem.Saturn()
     sat.compute(obs)
-    return sat.alt, sat.az
+    alt = degrees(repr(sat.alt))
+    az = degrees(repr(sat.az))
+    return alt, az
+
